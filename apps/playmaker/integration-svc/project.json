@@ -1,0 +1,52 @@
+{
+  "root": "apps/playmaker/integration-svc",
+  "sourceRoot": "apps/playmaker/integration-svc/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/playmaker/integration-svc",
+        "main": "apps/playmaker/integration-svc/src/main.ts",
+        "tsConfig": "apps/playmaker/integration-svc/tsconfig.app.json",
+        "assets": ["apps/playmaker/integration-svc/src/assets"]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/playmaker/integration-svc/src/environments/environment.ts",
+              "with": "apps/playmaker/integration-svc/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:node",
+      "options": {
+        "buildTarget": "playmaker-integration-svc:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/playmaker/integration-svc/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/playmaker/integration-svc"],
+      "options": {
+        "jestConfig": "apps/playmaker/integration-svc/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

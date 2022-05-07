@@ -1,0 +1,52 @@
+{
+  "root": "apps/playmaker/analytical-svc",
+  "sourceRoot": "apps/playmaker/analytical-svc/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/playmaker/analytical-svc",
+        "main": "apps/playmaker/analytical-svc/src/main.ts",
+        "tsConfig": "apps/playmaker/analytical-svc/tsconfig.app.json",
+        "assets": ["apps/playmaker/analytical-svc/src/assets"]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/playmaker/analytical-svc/src/environments/environment.ts",
+              "with": "apps/playmaker/analytical-svc/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:node",
+      "options": {
+        "buildTarget": "playmaker-analytical-svc:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/playmaker/analytical-svc/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/playmaker/analytical-svc"],
+      "options": {
+        "jestConfig": "apps/playmaker/analytical-svc/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

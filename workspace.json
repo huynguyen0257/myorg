@@ -1,8 +1,14 @@
 {
   "version": 2,
   "projects": {
-    "auth": "libs/auth",
-    "data": "libs/data",
-    "todos": "apps/todos"
+    "features-facebook-ads": "libs/features/facebook-ads",
+    "features-google-ads": "libs/features/google-ads",
+    "features-google-analytic": "libs/features/google-analytic",
+    "features-oauth": "libs/features/oauth",
+    "playmaker-analytical-svc": "apps/playmaker/analytical-svc",
+    "playmaker-integration-svc": "apps/playmaker/integration-svc",
+    "playmaker-user-svc": "apps/playmaker/user-svc",
+    "shared-data-access": "libs/shared/data-access",
+    "shared-utils": "libs/shared/utils"
   }
 }

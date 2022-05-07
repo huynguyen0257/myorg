@@ -1,0 +1,45 @@
+{
+  "root": "libs/features/google-ads",
+  "sourceRoot": "libs/features/google-ads/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/features/google-ads",
+        "tsConfig": "libs/features/google-ads/tsconfig.lib.json",
+        "packageJson": "libs/features/google-ads/package.json",
+        "main": "libs/features/google-ads/src/index.ts",
+        "assets": ["libs/features/google-ads/*.md"]
+      }
+    },
+    "publish": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "node tools/scripts/publish.mjs features-google-ads {args.ver} {args.tag}"
+      },
+      "dependsOn": [
+        {
+          "projects": "self",
+          "target": "build"
+        }
+      ]
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/features/google-ads/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/features/google-ads"],
+      "options": {
+        "jestConfig": "libs/features/google-ads/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

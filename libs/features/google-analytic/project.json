@@ -1,0 +1,45 @@
+{
+  "root": "libs/features/google-analytic",
+  "sourceRoot": "libs/features/google-analytic/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/features/google-analytic",
+        "tsConfig": "libs/features/google-analytic/tsconfig.lib.json",
+        "packageJson": "libs/features/google-analytic/package.json",
+        "main": "libs/features/google-analytic/src/index.ts",
+        "assets": ["libs/features/google-analytic/*.md"]
+      }
+    },
+    "publish": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "node tools/scripts/publish.mjs features-google-analytic {args.ver} {args.tag}"
+      },
+      "dependsOn": [
+        {
+          "projects": "self",
+          "target": "build"
+        }
+      ]
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/features/google-analytic/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/features/google-analytic"],
+      "options": {
+        "jestConfig": "libs/features/google-analytic/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,45 @@
+{
+  "root": "libs/features/facebook-ads",
+  "sourceRoot": "libs/features/facebook-ads/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/features/facebook-ads",
+        "tsConfig": "libs/features/facebook-ads/tsconfig.lib.json",
+        "packageJson": "libs/features/facebook-ads/package.json",
+        "main": "libs/features/facebook-ads/src/index.ts",
+        "assets": ["libs/features/facebook-ads/*.md"]
+      }
+    },
+    "publish": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "node tools/scripts/publish.mjs features-facebook-ads {args.ver} {args.tag}"
+      },
+      "dependsOn": [
+        {
+          "projects": "self",
+          "target": "build"
+        }
+      ]
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/features/facebook-ads/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/features/facebook-ads"],
+      "options": {
+        "jestConfig": "libs/features/facebook-ads/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

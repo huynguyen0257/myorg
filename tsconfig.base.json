@@ -15,8 +15,17 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@myorg/auth": ["libs/auth/src/index.ts"],
-      "@myorg/data": ["libs/data/src/index.ts"]
+      "@myorg/shared/data-access": ["libs/shared/data-access/src/index.ts"],
+      "@myorg/shared/utils": ["libs/shared/utils/src/index.ts"],
+      "@tommysg/facebook-ads": ["libs/features/facebook-ads/src/index.ts"],
+      "@tommysg/facebook-ads-module": [
+        "libs/features/facebook-ads/src/index.ts"
+      ],
+      "@tommysg/google-ads-module": ["libs/features/google-ads/src/index.ts"],
+      "@tommysg/google-analytic-module": [
+        "libs/features/google-analytic/src/index.ts"
+      ],
+      "@tommysg/oauth-module": ["libs/features/oauth/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
