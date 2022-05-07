@@ -1,2 +1,2 @@
 export * from './app';
-export * from './app.module';
+export * from './facebook-ads.module';
