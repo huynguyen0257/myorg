@@ -4,6 +4,7 @@
     "features-facebook-ads": "libs/features/facebook-ads",
     "features-google-ads": "libs/features/google-ads",
     "features-google-analytic": "libs/features/google-analytic",
+    "features-nest-common": "libs/features/nest-common",
     "features-oauth": "libs/features/oauth",
     "playmaker-analytical-svc": "apps/playmaker/analytical-svc",
     "playmaker-integration-svc": "apps/playmaker/integration-svc",

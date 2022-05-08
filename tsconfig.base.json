@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@myorg/features/nest-common": ["libs/features/nest-common/src/index.ts"],
       "@myorg/shared/data-access": ["libs/shared/data-access/src/index.ts"],
       "@myorg/shared/utils": ["libs/shared/utils/src/index.ts"],
       "@tommysg/facebook-ads": ["libs/features/facebook-ads/src/index.ts"],

@@ -1,10 +1,15 @@
-import { IsDate, IsNumber, IsString } from "class-validator";
+import { Type } from 'class-transformer';
+import { IsDate, IsNumber, IsString } from 'class-validator';
 
-export class CreateFacebookAdsDto {
+export class ViewFacebookAdsDto {
+  @IsString()
+  public id: string;
+
   @IsString()
   public productId: string;
 
   @IsDate()
+  @Type(() => Date)
   public date: Date;
 
   @IsNumber()
