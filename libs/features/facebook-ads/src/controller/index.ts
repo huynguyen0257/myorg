@@ -1,1 +1,2 @@
-export * from './facebook.controller';
+export * from './facebook-ads.controller';
+export * from './facebook-sync.controller';

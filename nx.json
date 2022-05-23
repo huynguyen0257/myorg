@@ -29,5 +29,21 @@
       }
     ]
   },
-  "defaultProject": "playmaker-integration-svc"
+  "defaultProject": "playmaker-integration-svc",
+  "generators": {
+    "@nx-clean/plugin-core": {
+      "data": {
+        "injectable": true
+      },
+      "domain": {
+        "injectable": true
+      },
+      "presentation": {
+        "injectable": true
+      },
+      "repository": {
+        "injectable": true
+      }
+    }
+  }
 }

@@ -15,8 +15,11 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@myorg/account/data-access": ["libs/account/data-access/src/index.ts"],
+      "@myorg/account/domain": ["libs/account/domain/src/index.ts"],
+      "@myorg/account/presentation": ["libs/account/presentation/src/index.ts"],
+      "@myorg/features/core": ["libs/features/core/src/index.ts"],
       "@myorg/features/nest-common": ["libs/features/nest-common/src/index.ts"],
-      "@myorg/shared/data-access": ["libs/shared/data-access/src/index.ts"],
       "@myorg/shared/utils": ["libs/shared/utils/src/index.ts"],
       "@tommysg/facebook-ads": ["libs/features/facebook-ads/src/index.ts"],
       "@tommysg/facebook-ads-module": [

@@ -1,6 +1,10 @@
 {
   "version": 2,
   "projects": {
+    "account-data-access": "libs/account/data-access",
+    "account-domain": "libs/account/domain",
+    "account-presentation": "libs/account/presentation",
+    "features-core": "libs/features/core",
     "features-facebook-ads": "libs/features/facebook-ads",
     "features-google-ads": "libs/features/google-ads",
     "features-google-analytic": "libs/features/google-analytic",
@@ -9,7 +13,6 @@
     "playmaker-analytical-svc": "apps/playmaker/analytical-svc",
     "playmaker-integration-svc": "apps/playmaker/integration-svc",
     "playmaker-user-svc": "apps/playmaker/user-svc",
-    "shared-data-access": "libs/shared/data-access",
     "shared-utils": "libs/shared/utils"
   }
 }

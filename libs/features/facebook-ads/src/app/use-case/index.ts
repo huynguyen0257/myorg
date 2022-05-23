@@ -1,2 +1,1 @@
-export * from './facebook.service';
-export * from './dto';
+export * from './facebook-ads';

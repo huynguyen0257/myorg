@@ -1,1 +1,2 @@
-export * from './facebook-ads.entity'
+export * from './entities';
+export * from './repositories';
