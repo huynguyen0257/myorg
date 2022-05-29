@@ -1,0 +1,10 @@
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "username": "dev",
+  "password": "dev@123",
+  "database": "playmaker_dev",
+  "entities": ["libs/**/*.entity-table{.ts,.js}"],
+  "synchronize": false
+}
