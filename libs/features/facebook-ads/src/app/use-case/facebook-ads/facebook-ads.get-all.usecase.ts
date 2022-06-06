@@ -1,6 +1,6 @@
 import { UserCase } from '@myorg/features/core';
 import { Inject } from '@nestjs/common';
-import { IFacebookAdsRepository } from '../../../domain';
+import { FacebookAdsEntity, IFacebookAdsRepository } from '../../../domain';
 import { ViewFacebookAdsDto } from './dto';
 
 export type GetFacebookAdsFilter = {
@@ -10,7 +10,7 @@ export type GetFacebookAdsFilter = {
 };
 
 export class GetAllFacebookAdsUseCase
-  implements UserCase<GetFacebookAdsFilter, ViewFacebookAdsDto[]>
+  implements UserCase<GetFacebookAdsFilter, FacebookAdsEntity[]>
 {
   constructor(
     @Inject('facebook-ads.repository')
@@ -18,15 +18,16 @@ export class GetAllFacebookAdsUseCase
   ) {}
   public async execute(
     request?: GetFacebookAdsFilter
-  ): Promise<ViewFacebookAdsDto[]> {
-    const entity = await this._repo.getAll();
-    return entity.map((_) => ({
-      id: '',
-      productId: _.productId,
-      date: _.date,
-      view: _.view,
-      click: _.click,
-      adSpends: _.adSpends,
-    }));
+  ): Promise<FacebookAdsEntity[]> {
+    // const entity = await this._repo.getAll();
+    // return entity.map((_) => ({
+    //   id: '',
+    //   productId: _.productId,
+    //   date: _.date,
+    //   view: _.view,
+    //   click: _.click,
+    //   adSpends: _.adSpends,
+    // }));
+    return this._repo.getAll();
   }
 }

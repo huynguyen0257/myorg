@@ -6,31 +6,31 @@ export class FacebookAdsEntityTable {
   @PrimaryColumn({
     name: 'product_id',
     type: 'varchar',
-    length: 50
+    length: 50,
   })
   productId: string;
 
   @PrimaryColumn({
     name: 'date',
-    type: 'timestamp'
+    type: 'timestamp',
   })
   date: Date;
 
   @Column({
     name: 'view',
-    type: 'int'
+    type: 'int',
   })
   view: number;
 
   @Column({
     name: 'click',
-    type: 'int'
+    type: 'int',
   })
   click: number;
 
   @Column({
     name: 'ad_spends',
-    type: 'int'
+    type: 'int',
   })
   adSpends: number;
 

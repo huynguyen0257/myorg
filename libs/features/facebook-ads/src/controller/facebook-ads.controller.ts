@@ -1,11 +1,15 @@
 import {
   Body,
+  CacheInterceptor,
+  ClassSerializerInterceptor,
   Controller,
   Delete,
   Get,
   Param,
   Post,
   Put,
+  SerializeOptions,
+  UseInterceptors,
 } from '@nestjs/common';
 import {
   CreateFacebookAdsDto,
@@ -28,11 +32,13 @@ export class FacebookAdsController {
     private _removeUC: RemoveFacebookAdsUseCase
   ) {}
 
+  @UseInterceptors(CacheInterceptor, ClassSerializerInterceptor)
   @Get()
   public async getAll(): Promise<ViewFacebookAdsDto[]> {
     return this._getAllUC.execute();
   }
 
+  @UseInterceptors(ClassSerializerInterceptor)
   @Get(':productId')
   public async getById(@Param('productId') productId: string): Promise<ViewFacebookAdsDto> {
     return this._getByIdUC.execute({ productId, date: new Date() });
@@ -55,6 +61,6 @@ export class FacebookAdsController {
 
   @Delete(':productId')
   public async remove(@Param('productId') productId: string): Promise<ViewFacebookAdsDto> {
-    throw new Error('Method not implemented.');
+    return this._removeUC.execute({productId, date: new Date()});
   }
 }

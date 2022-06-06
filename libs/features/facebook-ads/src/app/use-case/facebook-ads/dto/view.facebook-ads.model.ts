@@ -2,19 +2,19 @@ import { Type } from 'class-transformer';
 import { IsDate, IsNumber, IsString } from 'class-validator';
 
 export class ViewFacebookAdsDto {
-  @IsString()
-  public productId: string;
+  // @IsString()
+  // public productId: string;
 
-  @IsDate()
-  @Type(() => Date)
-  public date: Date;
+  // @IsDate()
+  // @Type(() => Date)
+  // public date: Date;
 
-  @IsNumber()
-  public view: number;
+  // @IsNumber()
+  // public view: number;
 
-  @IsNumber()
-  public click: number;
+  // @IsNumber()
+  // public click: number;
 
-  @IsNumber()
-  public adSpends: number;
+  // @IsNumber()
+  // public adSpends: number;
 }

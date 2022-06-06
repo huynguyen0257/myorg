@@ -1,4 +1,6 @@
-import { Module } from '@nestjs/common';
+import type { ClientOpts } from 'redis';
+import * as redisStore from 'cache-manager-ioredis';
+import { CacheModule, Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { FacebookAdsModule } from '@tommysg/facebook-ads';
@@ -16,7 +18,7 @@ import ConfigSchemaValidation from '../config/config.schema';
       useFactory: async () => {
         return Object.assign(await getConnectionOptions(), {
           autoLoadEntities: true,
-          entities: [join(__dirname, '**', '*.entity.{ts,js}')]
+          entities: [join(__dirname, '**', '*.entity.{ts,js}')],
         });
       },
     }),
@@ -27,8 +29,16 @@ import ConfigSchemaValidation from '../config/config.schema';
       validationSchema: ConfigSchemaValidation,
       validationOptions: {
         allowUnknown: true,
-        abortEarly: true
-      }
+        abortEarly: true,
+      },
+    }),
+    CacheModule.register<ClientOpts>({
+      store: redisStore,
+      password: 'dev@123',
+      db:3,
+      ttl:0,
+      isGlobal: true,
+      max: 10,
     }),
     FacebookAdsModule,
     GoogleAdsModule,

@@ -1,4 +1,5 @@
 import { UserCase } from '@myorg/features/core';
+import { FunctionNotImplement } from '@myorg/features/nest-common';
 import { UpdateFacebookAdsDto, ViewFacebookAdsDto } from './dto';
 
 export class UpdateFacebookAdsUseCase
@@ -10,6 +11,6 @@ export class UpdateFacebookAdsUseCase
     console.log(
       `Execute update facebook: ${JSON.stringify(request, undefined, 4)}`
     );
-    throw new Error('Method not implemented.');
+    throw new FunctionNotImplement('RemoveFacebookAdsUseCase')
   }
 }

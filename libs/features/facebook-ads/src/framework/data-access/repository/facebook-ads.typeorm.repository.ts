@@ -27,7 +27,7 @@ export class FacebookAdsTypeOrmRepository implements IFacebookAdsRepository {
   }
   public async create(entity: FacebookAdsEntity): Promise<FacebookAdsEntity> {
     const table = await this._mapper.mapTo(entity);
-    return await this._repo.save(table);
+    return this._repo.save(table);
   }
   public async update(id: string, entity: FacebookAdsEntity): Promise<FacebookAdsEntity> {
     throw new Error('Method not implemented.');

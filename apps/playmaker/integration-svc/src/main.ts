@@ -29,6 +29,7 @@ async function bootstrap() {
     new ValidationPipe({
       whitelist: true,
       forbidUnknownValues: true,
+      transform: true
     })
   );
   const port = process.env.PORT || 3333;
