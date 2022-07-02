@@ -1,3 +1,4 @@
+import { TransformInterceptor } from '@myorg/features/nest-common';
 import {
   Body,
   CacheInterceptor,
@@ -23,6 +24,7 @@ import {
 } from '../app';
 
 @Controller('facebook-ads')
+@UseInterceptors(TransformInterceptor)
 export class FacebookAdsController {
   constructor(
     private _getAllUC: GetAllFacebookAdsUseCase,
@@ -45,6 +47,7 @@ export class FacebookAdsController {
   }
 
   @Post()
+  @UseInterceptors(ClassSerializerInterceptor)
   public async create(
     @Body() model: CreateFacebookAdsDto
   ): Promise<ViewFacebookAdsDto> {

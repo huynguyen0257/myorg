@@ -1,4 +1,4 @@
-import { Exclude, Expose } from 'class-transformer';
+import { Exclude, Expose, Type } from 'class-transformer';
 import { IsDate, IsNumber, IsString, validate } from 'class-validator';
 
 export type CreateFacebookAdsEntityType = {
@@ -57,6 +57,7 @@ export class FacebookAdsEntity {
   }
 
   @Expose()
+  @Type(() => Date)
   public get date(): Date {
     return this._date;
   }

@@ -10,6 +10,7 @@
     "features-google-analytic": "libs/features/google-analytic",
     "features-nest-common": "libs/features/nest-common",
     "features-oauth": "libs/features/oauth",
+    "features-user": "libs/features/user",
     "playmaker-analytical-svc": "apps/playmaker/analytical-svc",
     "playmaker-integration-svc": "apps/playmaker/integration-svc",
     "playmaker-user-svc": "apps/playmaker/user-svc",

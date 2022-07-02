@@ -8,7 +8,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "es2015",
+    "target": "es2017",
     "module": "esnext",
     "lib": ["es2017", "dom"],
     "skipLibCheck": true,
@@ -29,7 +29,8 @@
       "@tommysg/google-analytic-module": [
         "libs/features/google-analytic/src/index.ts"
       ],
-      "@tommysg/oauth-module": ["libs/features/oauth/src/index.ts"]
+      "@tommysg/oauth-module": ["libs/features/oauth/src/index.ts"],
+      "@tommysg/user-module": ["libs/features/user/src/index.ts"],
     }
   },
   "exclude": ["node_modules", "tmp"]
