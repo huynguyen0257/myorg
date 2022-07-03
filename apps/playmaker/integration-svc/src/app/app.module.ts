@@ -10,7 +10,7 @@ import { OAuthModule } from '@tommysg/oauth-module';
 import { join } from 'path';
 import { getConnectionOptions } from 'typeorm';
 import configuration from '../config';
-import ConfigSchemaValidation from '../config/config.schema';
+import ConfigSchema from '../config/config.schema';
 
 @Module({
   imports: [
@@ -18,7 +18,7 @@ import ConfigSchemaValidation from '../config/config.schema';
       useFactory: async () => {
         return Object.assign(await getConnectionOptions(), {
           autoLoadEntities: true,
-          entities: [join(__dirname, '**', '*.entity.{ts,js}')],
+          entities: [join(__dirname, 'libs', '**', '*.table.{ts,js}')],
         });
       },
     }),
@@ -26,7 +26,7 @@ import ConfigSchemaValidation from '../config/config.schema';
       // envFilePath: '.env.local',
       isGlobal: true,
       load: [configuration],
-      validationSchema: ConfigSchemaValidation,
+      validationSchema: ConfigSchema,
       validationOptions: {
         allowUnknown: true,
         abortEarly: true,

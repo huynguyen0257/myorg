@@ -1,11 +1,11 @@
 import Joi = require('joi');
 
-const ConfigSchemaValidation = Joi.object({
+const ConfigSchema = Joi.object({
   NODE_ENV: Joi.string()
     .valid('development', 'production', 'test', 'provision')
     .default('development'),
   PORT: Joi.number().default(3000),
-  DATABASE_HOST: Joi.string().required(),
-  DATABASE_PORT: Joi.number().required()
+  DB_HOST: Joi.string().required(),
+  DB_PORT: Joi.number().required()
 });
-export default ConfigSchemaValidation;
+export default ConfigSchema;

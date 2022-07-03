@@ -2,6 +2,9 @@
   "extends": "../../../tsconfig.base.json",
   "compilerOptions": {
     "module": "commonjs",
+    "paths": {
+      "@core": ["src/core"]
+    }
   },
   "files": [],
   "include": [],

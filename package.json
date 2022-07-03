@@ -6,7 +6,11 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
-		"typeorm": "typeorm-ts-node-commonjs"
+    "typeorm:cli": "ts-node -P tsconfig.base.json ./node_modules/typeorm/cli.js -f ormconfig-migration.js",
+		"migration:create": "npm run typeorm:cli migration:create -- -o -n $npm_config_name",
+		"migration:generate": "nx run $npm_config_module:build && npm run typeorm:cli migration:generate -- -o -n $npm_config_name",
+    "migration:run": "npm run typeorm:cli migration:run",
+    "migration:revert": "npm run typeorm:cli migration:revert"
   },
   "private": true,
   "dependencies": {

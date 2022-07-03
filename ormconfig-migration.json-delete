@@ -1,0 +1,15 @@
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": "5432",
+  "username": "dev",
+  "password": "dev@123",
+  "database": "playmaker_dev",
+  "entities": ["dist/**/*.table{.ts,.js}"],
+  "synchronize": false,
+  "migrations": ["migrations/*{.ts,.js}"],
+  "cli": {
+    "migrationsDir": "migrations"
+  }
+}
+
