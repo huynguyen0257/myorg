@@ -5,6 +5,7 @@ import { randomUUID } from 'crypto';
 export type UserPros = {
   id: string;
   username: string;
+  email: string;
   password: string;
   firstName?: string;
   lastName?: string;
@@ -19,6 +20,10 @@ export class UserEntity {
   @Expose()
   @IsString()
   private _username: string;
+
+  @Expose()
+  @IsString()
+  private _email: string;
 
   @Expose()
   @IsString()
@@ -43,6 +48,7 @@ export class UserEntity {
     this._firstName = payload.firstName;
     this._lastName = payload.lastName;
     this._dob = payload.dob;
+    this._email = payload.email;
   }
 
   @Expose()
@@ -53,6 +59,11 @@ export class UserEntity {
   @Expose()
   public get username(): string {
     return this._username;
+  }
+
+  @Expose()
+  public get email(): string {
+    return this._email;
   }
 
   @Expose()
@@ -77,15 +88,17 @@ export class UserEntity {
   }
 
   public static create(payload: Partial<UserPros>) {
-    if (!payload.username || !payload.password) {
-      throw new Error('UserEntity create error: !payload.username || !payload.password')
+    const {username, password, email} = payload;
+    if (!username || !password || !email) {
+      throw new Error('UserEntity create error: !username || !password || !email')
     }
 
     return new UserEntity({
       ...payload,
       id : payload.id || randomUUID(),
-      username: payload.username,
-      password: payload.password,
+      username,
+      password,
+      email
     })
   }
 }

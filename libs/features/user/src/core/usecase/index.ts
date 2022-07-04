@@ -1,3 +1,3 @@
-export interface UserCase<Request, Response> {
-  execute(request?: Request): Promise<Response> | Response;
+export interface IUseCase<In, Out> {
+  execute(request?: In): Promise<Out> | Out;
 }

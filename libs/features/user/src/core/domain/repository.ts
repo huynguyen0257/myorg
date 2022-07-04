@@ -1,5 +1,5 @@
 export interface IRepository<T>{
-  getAll(): Promise<T[]>;
+  getAll(filter?: any): Promise<T[]>;
   getById(id: string): Promise<T>;
   create(payload: Partial<T>): Promise<T>;
   createBulk(payloads: Partial<T>[]): Promise<boolean>;

@@ -1,2 +1,2 @@
 export * from './table';
-export * from './dao';
+export * from './repo';

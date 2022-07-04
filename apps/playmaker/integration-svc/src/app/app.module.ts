@@ -11,6 +11,7 @@ import { join } from 'path';
 import { getConnectionOptions } from 'typeorm';
 import configuration from '../config';
 import ConfigSchema from '../config/config.schema';
+import { UserModule } from '@tommysg/user-module';
 
 @Module({
   imports: [
@@ -44,6 +45,7 @@ import ConfigSchema from '../config/config.schema';
     GoogleAdsModule,
     GoogleAnalyticModule,
     OAuthModule,
+    UserModule
   ],
 })
 export class AppModule {}

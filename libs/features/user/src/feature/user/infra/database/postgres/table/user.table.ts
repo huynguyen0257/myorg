@@ -7,27 +7,27 @@ export class UserTable {
     type: 'varchar',
     length: 36,
   })
-  id: string;
+  id?: string;
 
   @Column({
     name: 'username',
     type: 'varchar',
     unique: true
   })
-  username: string;
+  username?: string;
 
   @Column({
     name: 'email',
     type: 'varchar',
     unique: true
   })
-  email: string;
+  email?: string;
 
   @Column({
     name: 'password',
     type: 'varchar',
   })
-  password: string;
+  password?: string;
 
   @Column({
     name: 'first_name',
@@ -68,7 +68,7 @@ export class UserTable {
 		this.email = email;
   }
 
-  public static create(payload: Required<UserTable>) {
+  public static create(payload: Partial<UserTable>) {
     return new UserTable(
       payload.id,
       payload.firstName,
